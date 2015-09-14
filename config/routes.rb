@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
-  
-  devise_for :users
-  get 'static_pages/home'
 
-  get 'static_pages/help'
+  get 'static_pages/home' => 'static_pages#home'
 
-  get 'static_pages/about'
+  get 'static_pages/help' => 'static_pages#help'
+
+  get 'static_pages/about' => 'static_pages#about'
+
+  # the line "devise_for :users" is gen'd automatically, but you can customize the name of specific paths by adding a path_names hash like so:
+  devise_for :users, path_names: {sign_in: "Login", sign_out: "Logout"}
 
   root 'static_pages#home'
 
