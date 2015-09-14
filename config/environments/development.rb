@@ -38,4 +38,8 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+  # Below added by me as suggested by devise gem after running the command "rails g devise:install"
+  # When site is deployed, I will also need to set the below parameter for production in the congif/environments/production.rb file to whatever the URL of the live website is (e.g. the heroku site name)
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 end
